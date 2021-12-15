@@ -1,0 +1,549 @@
+<div class="main-body">
+    <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+
+<!-- start form pilihan kalender akademik -->
+                            <div class="row">
+
+                                    <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                       <div class="card user-card b-l-warning header-card">
+                                        <h2 class="log-pengguna" style="color: white;">Jadwal Kuliah Mahasiswa</h2>
+                                    </div>
+                                <div class="card user-card b-l-warning">
+                                    <div class="card-block scroll">
+                                            
+                                               <div class="row align-items-center">
+                    
+                                                 <div class="col">
+                                                        <form action="/tampil-jadwal-kuliah" method="post">
+                                                                <div class="form-group row">
+                                                                     <label class="col-form-label tahun-akademik">Tahun Akademik</label>
+                                                                        <div class="col-xl-10 col-lg-12 col-sm-12 col-xs-12">
+                                                                            <select name="keyword" class="form-control">
+                                                                                <option value="">- Pilih Salah Satu -</option>
+                                                                                <% tahun.forEach((val) => { %>
+                                                                                  <option value="<%- val['kode_tahun_semester'] %>"><%- val['kode_tahun_semester'] %></option>
+                                                                                <% }) %>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                
+                                                                    <button type="submit" class="btn btn-warning btn-tampilkan-tahun-akademik"><i class="fa fa-search"></i> Tampilkan</button> 
+                                                                     
+                                                                </div>
+                                                            </form>
+                                                    </div>            
+                                </div>                                                                         
+                            </div>
+    <!-- end form pilihan kalender akademik -->
+
+    <!-- start tab tabel jadwal perkuliahan -->
+                        <div class="row">
+
+                                        <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+
+                                            <!-- Nav tabs -->
+                                            <div class="card user-card b-l-warning social-tabs">
+                                                <ul class="nav nav-tabs md-tabs tabs-jadwal-perkuliahan tab-timeline" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" data-toggle="tab" href="#senin" role="tab">Senin</a>
+                                                        <div class="slide" style="background-color: #E64901;"></div>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#selasa" role="tab">Selasa</a>
+                                                        <div class="slide" style="background-color: #E64901;"></div>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#rabu" role="tab">Rabu</a>
+                                                        <div class="slide" style="background-color: #E64901;"></div>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#kamis" role="tab">Kamis</a>
+                                                        <div class="slide" style="background-color: #E64901;"></div>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#jumat" role="tab">Jumat</a>
+                                                        <div class="slide" style="background-color: #E64901;"></div>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-toggle="tab" href="#sabtu" role="tab">Sabtu</a>
+                                                        <div class="slide" style="background-color: #E64901;"></div>
+                                                    </li>
+                                                    <!--      -->
+                                                </ul>
+                                            </div>
+                                            <!-- Tab panes -->
+                                            <div class="tab-content">
+                                                <!-- senin start -->
+                                                <div class="tab-pane active" id="senin">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="card user-card b-l-warning">
+                                                                <div class="card-block">
+                                                                    <div id="view-info" class="row">
+                                                                        <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                            
+                                                                            <div class="row align-items-center">
+                                                                                
+                                                                                <div class="table-responsive">
+                                                                                    <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+                                                                                        
+                                                                                        <thead>
+                                                                                            
+                                                                                            <tr class="group">
+                                                                                                <td colspan="10" style="text-align: center; background-color: #E64901; color: #FFFFFF;">
+                                                                                                    <h5>Senin</h5>               
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            
+                                                                                            <tr class="head-tabel-jadwal-kuliah">
+                                                                                                <th style="text-align: center;">No</th>
+                                                                                                <th style="text-align: center;">Jam</th>
+                                                                                                <th style="text-align: center;">Kode MK</th>
+                                                                                                <th style="text-align: center;">Matakuliah</th>
+                                                                                                <th style="text-align: center;">SKS</th>
+                                                                                                <th style="text-align: center;">Kelas</th>
+                                                                                            <th style="text-align: center;">Ruangan</th>
+                                                                                            <th style="text-align: center;">Dosen Pengajar</th>
+                                                                                            <th style="text-align: center;">Kehadiran</th>
+                                                                                            <th style="text-align: center;">Pindah Kelas</th>
+                                                                                        </tr>
+
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                            
+                                                                                        <% if(typeof senin !== 'undefined') { %>
+                                                                                        <tr>
+                                                                                            <td data-label="No" scope="row"> 1 </td>
+                                                                                            <td data-label="Jam"> <%- senin['jam_kuliah'] %> </td>
+                                                                                            <td data-label="Kode MK"> <%- senin['kode_mk'] %> </td>
+                                                                                            <td data-label="Mata Kuliah"style="text-align: left;"> <%- senin['nama_mk'] %> </td>
+                                                                                            <td data-label="SKS"> <%- senin['sks_mk'] %> SKS </td>
+                                                                                            <td data-label="Kelas"> <%- senin['kelas'] %> </td>
+                                                                                            <td data-label="Ruangan"> <%- senin['ruangan'] %> </td>
+                                                                                            <td data-label="Dosen Pengajar" style="text-align: left;"> <%- senin['nama_dosen'] %> </td>
+                                                                                            <td data-label="Kehadiran" style="text-align: left;"> <%- senin['info_kehadiran'] %> </td>
+                                                                                            <td data-label="Pindah Kelas" class="dropdown" style="text-align: center;">
+                                                                                              <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #E64901;"><i class="fa fa-cog" aria-hidden="true"></i>Aksi</button>
+
+                                                                                              <div class="dropdown-menu dropdown-menu-right b-none contact-menu">
+                                                                                                  <a class="dropdown-item" href="editPengajuanSIMK.html"><i class="icofont icofont-ui-add"></i> Pengajuan</a>
+                                                                                                  <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-clip-board"></i>Klaim</a>
+                                                                                              </div>
+
+                                                                                          </td>
+                                                                                        </tr>
+                                                                                        <% } %>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>             
+                                                                        </div>
+
+                                                            </div>
+                                                        </div>
+                                                               
+                                              </div>
+                                           </div>
+                                      </div>                                  
+                                                    </div>
+                                                </div>
+
+                    <!-- senin end -->
+
+        <!-- end tab tabel jadwal perkuliahan -->
+       
+
+                                            
+                            <!-- selasa start -->
+                            <div class="tab-pane" id="selasa">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card user-card b-l-warning">
+                                            <div class="card-block">
+                                                <div id="view-info" class="row">
+                                                    <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                        
+                                                        <div class="row align-items-center">
+                                                            
+                                                            <div class="table-responsive">
+                                                                <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+                                                                    
+                                                                    <thead>
+                                                                        
+                                                                        <tr class="group">
+                                                                            <td colspan="10" style="text-align: center; background-color: #E64901; color: #FFFFFF;">
+                                                                                <h5>Selasa </h5>               
+                                                                            </td>
+                                                                        </tr>
+                                                                        
+                                                                        <tr class="head-tabel-jadwal-kuliah">
+                                                                            <th style="text-align: center;">No</th>
+                                                                            <th style="text-align: center;">Jam</th>
+                                                                            <th style="text-align: center;">Kode MK</th>
+                                                                            <th style="text-align: center;">Matakuliah</th>
+                                                                            <th style="text-align: center;">SKS</th>
+                                                                            <th style="text-align: center;">Kelas</th>
+                                                                            <th style="text-align: center;">Ruangan</th>
+                                                                            <th style="text-align: center;">Dosen Pengajar</th>
+                                                                            <th style="text-align: center;">Kehadiran</th>
+                                                                            <th style="text-align: center;">Pindah Kelas</th>
+                                                                        </tr>
+
+                                                                </thead>
+                                                                <tbody>
+                                                        
+                                                                    <% if(typeof selasa !== 'undefined') { %>
+                                                                    <tr>
+                                                                        <td data-label="No" scope="row"> 1 </td>
+                                                                        <td data-label="Jam"> <%- selasa['jam_kuliah'] %> </td>
+                                                                        <td data-label="Kode MK"> <%- selasa['kode_mk'] %> </td>
+                                                                        <td data-label="Mata Kuliah"style="text-align: left;"> <%- selasa['nama_mk'] %> </td>
+                                                                        <td data-label="SKS"> <%- selasa['sks_mk'] %> SKS </td>
+                                                                        <td data-label="Kelas"> <%- selasa['kelas'] %> </td>
+                                                                        <td data-label="Ruangan"> <%- selasa['ruangan'] %> </td>
+                                                                        <td data-label="Dosen Pengajar" style="text-align: left;"> <%- selasa['nama_dosen'] %> </td>
+                                                                        <td data-label="Kehadiran" style="text-align: left;"> <%- selasa['info_kehadiran'] %> </td>
+                                                                        <td data-label="Pindah Kelas" class="dropdown" style="text-align: center;">
+                                                                          <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #E64901;"><i class="fa fa-cog" aria-hidden="true"></i>Aksi</button>
+
+                                                                          <div class="dropdown-menu dropdown-menu-right b-none contact-menu">
+                                                                              <a class="dropdown-item" href="editPengajuanSIMK.html"><i class="icofont icofont-ui-add"></i> Pengajuan</a>
+                                                                              <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-clip-board"></i>Klaim</a>
+                                                                          </div>
+
+                                                                      </td>
+                                                                    </tr>
+                                                                    <% }%>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>             
+                                                    </div>
+
+                                        </div>
+                                    </div>
+                                           
+                          </div>
+                       </div>
+                  </div>                                  
+                                </div>
+                            </div>
+
+<!-- selasa end -->
+<!-- rabu start -->
+<div class="tab-pane" id="rabu">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card user-card b-l-warning">
+                <div class="card-block">
+                    <div id="view-info" class="row">
+                        <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                            
+                            <div class="row align-items-center">
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+                                        
+                                        <thead>
+                                            
+                                            <tr class="group">
+                                                <td colspan="10" style="text-align: center; background-color: #E64901; color: #FFFFFF;">
+                                                    <h5>Rabu </h5>               
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr class="head-tabel-jadwal-kuliah">
+                                                <th style="text-align: center;">No</th>
+                                                <th style="text-align: center;">Jam</th>
+                                                <th style="text-align: center;">Kode MK</th>
+                                                <th style="text-align: center;">Matakuliah</th>
+                                                <th style="text-align: center;">SKS</th>
+                                                <th style="text-align: center;">Kelas</th>
+                                            <th style="text-align: center;">Ruangan</th>
+                                            <th style="text-align: center;">Dosen Pengajar</th>
+                                            <th style="text-align: center;">Kehadiran</th>
+                                            <th style="text-align: center;">Pindah Kelas</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                            
+                                        <% if(typeof rabu !== 'undefined') { %>
+                                        <tr>
+                                            <td data-label="No" scope="row"> 1 </td>
+                                            <td data-label="Jam"> <%- rabu['jam_kuliah'] %> </td>
+                                            <td data-label="Kode MK"> <%- rabu['kode_mk'] %> </td>
+                                            <td data-label="Mata Kuliah"style="text-align: left;"> <%- rabu['nama_mk'] %> </td>
+                                            <td data-label="SKS"> <%- rabu['sks_mk'] %> SKS </td>
+                                            <td data-label="Kelas"> <%- rabu['kelas'] %> </td>
+                                            <td data-label="Ruangan"> <%- rabu['ruangan'] %> </td>
+                                            <td data-label="Dosen Pengajar" style="text-align: left;"> <%- rabu['nama_dosen'] %> </td>
+                                            <td data-label="Kehadiran" style="text-align: left;"> <%- rabu['info_kehadiran'] %> </td>
+                                            <td data-label="Pindah Kelas" class="dropdown" style="text-align: center;">
+                                              <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #E64901;"><i class="fa fa-cog" aria-hidden="true"></i>Aksi</button>
+
+                                              <div class="dropdown-menu dropdown-menu-right b-none contact-menu">
+                                                  <a class="dropdown-item" href="editPengajuanSIMK.html"><i class="icofont icofont-ui-add"></i> Pengajuan</a>
+                                                  <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-clip-board"></i>Klaim</a>
+                                              </div>
+
+                                          </td>
+                                        </tr>
+                                        <%  } %>
+                                    </tbody>
+                                </table>
+                            </div>             
+                        </div>
+
+            </div>
+        </div>
+               
+</div>
+</div>
+</div>                                  
+    </div>
+</div>
+
+<!-- rabu end -->
+
+<!-- kamis start -->
+<div class="tab-pane" id="kamis">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card user-card b-l-warning">
+                <div class="card-block">
+                    <div id="view-info" class="row">
+                        <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                            
+                            <div class="row align-items-center">
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+                                        
+                                        <thead>
+                                            
+                                            <tr class="group">
+                                                <td colspan="10" style="text-align: center; background-color: #E64901; color: #FFFFFF;">
+                                                    <h5>Kamis </h5>               
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr class="head-tabel-jadwal-kuliah">
+                                                <th style="text-align: center;">No</th>
+                                                <th style="text-align: center;">Jam</th>
+                                                <th style="text-align: center;">Kode MK</th>
+                                                <th style="text-align: center;">Matakuliah</th>
+                                                <th style="text-align: center;">SKS</th>
+                                                <th style="text-align: center;">Kelas</th>
+                                                <th style="text-align: center;">Ruangan</th>
+                                                <th style="text-align: center;">Dosen Pengajar</th>
+                                                <th style="text-align: center;">Kehadiran</th>
+                                                <th style="text-align: center;">Pindah Kelas</th>
+                                            </tr>
+
+                                    </thead>
+                                    <tbody>
+                            
+                                        <% if(typeof kamis !== 'undefined') { %>
+                                        <tr>
+                                            <td data-label="No" scope="row"> 1 </td>
+                                            <td data-label="Jam"> <%- kamis['jam_kuliah'] %> </td>
+                                            <td data-label="Kode MK"> <%- kamis['kode_mk'] %> </td>
+                                            <td data-label="Mata Kuliah"style="text-align: left;"> <%- kamis['nama_mk'] %> </td>
+                                            <td data-label="SKS"> <%- kamis['sks_mk'] %> SKS </td>
+                                            <td data-label="Kelas"> <%- kamis['kelas'] %> </td>
+                                            <td data-label="Ruangan"> <%- kamis['ruangan'] %> </td>
+                                            <td data-label="Dosen Pengajar" style="text-align: left;"> <%- kamis['nama_dosen'] %> </td>
+                                            <td data-label="Kehadiran" style="text-align: left;"> <%- kamis['info_kehadiran'] %> </td>
+                                            <td data-label="Pindah Kelas" class="dropdown" style="text-align: center;">
+                                              <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #E64901;"><i class="fa fa-cog" aria-hidden="true"></i>Aksi</button>
+
+                                              <div class="dropdown-menu dropdown-menu-right b-none contact-menu">
+                                                  <a class="dropdown-item" href="editPengajuanSIMK.html"><i class="icofont icofont-ui-add"></i> Pengajuan</a>
+                                                  <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-clip-board"></i>Klaim</a>
+                                              </div>
+
+                                          </td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>             
+                        </div>
+
+            </div>
+        </div>
+               
+</div>
+</div>
+</div>                                  
+    </div>
+</div>
+
+<!-- kamis end -->
+
+<!-- jumat start -->
+<div class="tab-pane" id="jumat">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card user-card b-l-warning">
+                <div class="card-block">
+                    <div id="view-info" class="row">
+                        <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                            
+                            <div class="row align-items-center">
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+                                        
+                                        <thead>
+                                            
+                                            <tr class="group">
+                                                <td colspan="10" style="text-align: center; background-color: #E64901; color: #FFFFFF;">
+                                                    <h5>Jumat </h5>               
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr class="head-tabel-jadwal-kuliah">
+                                                <th style="text-align: center;">No</th>
+                                                <th style="text-align: center;">Jam</th>
+                                                <th style="text-align: center;">Kode MK</th>
+                                                <th style="text-align: center;">Matakuliah</th>
+                                                <th style="text-align: center;">SKS</th>
+                                                <th style="text-align: center;">Kelas</th>
+                                                <th style="text-align: center;">Ruangan</th>
+                                                <th style="text-align: center;">Dosen Pengajar</th>
+                                                <th style="text-align: center;">Kehadiran</th>
+                                                <th style="text-align: center;">Pindah Kelas</th>
+                                            </tr>
+
+                                    </thead>
+                                    <tbody>
+                            
+                                        <% if(typeof jumat !== 'undefined') { %>
+                                        <tr>
+                                            <td data-label="No" scope="row"> 1 </td>
+                                            <td data-label="Jam"> <%- jumat['jam_kuliah'] %> </td>
+                                            <td data-label="Kode MK"> <%- jumat['kode_mk'] %> </td>
+                                            <td data-label="Mata Kuliah"style="text-align: left;"> <%- jumat['nama_mk'] %> </td>
+                                            <td data-label="SKS"> <%- jumat['sks_mk'] %> SKS </td>
+                                            <td data-label="Kelas"> <%- jumat['kelas'] %> </td>
+                                            <td data-label="Ruangan"> <%- jumat['ruangan'] %> </td>
+                                            <td data-label="Dosen Pengajar" style="text-align: left;"> <%- jumat['nama_dosen'] %> </td>
+                                            <td data-label="Kehadiran" style="text-align: left;"> <%- jumat['info_kehadiran'] %> </td>
+                                            <td data-label="Pindah Kelas" class="dropdown" style="text-align: center;">
+                                              <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #E64901;"><i class="fa fa-cog" aria-hidden="true"></i>Aksi</button>
+
+                                              <div class="dropdown-menu dropdown-menu-right b-none contact-menu">
+                                                  <a class="dropdown-item" href="editPengajuanSIMK.html"><i class="icofont icofont-ui-add"></i> Pengajuan</a>
+                                                  <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-clip-board"></i>Klaim</a>
+                                              </div>
+
+                                          </td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>             
+                        </div>
+
+            </div>
+        </div>
+               
+</div>
+</div>
+</div>                                  
+    </div>
+</div>
+
+<!-- jumat end -->
+
+<!-- sabtu start -->
+<div class="tab-pane" id="sabtu">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card user-card b-l-warning">
+                <div class="card-block">
+                    <div id="view-info" class="row">
+                        <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                            
+                            <div class="row align-items-center">
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+                                        
+                                        <thead>
+                                            
+                                            <tr class="group">
+                                                <td colspan="10" style="text-align: center; background-color: #E64901; color: #FFFFFF;">
+                                                    <h5>Sabtu </h5>               
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr class="head-tabel-jadwal-kuliah">
+                                                <th style="text-align: center;">No</th>
+                                                <th style="text-align: center;">Jam</th>
+                                                <th style="text-align: center;">Kode MK</th>
+                                                <th style="text-align: center;">Matakuliah</th>
+                                                <th style="text-align: center;">SKS</th>
+                                                <th style="text-align: center;">Kelas</th>
+                                                <th style="text-align: center;">Ruangan</th>
+                                                <th style="text-align: center;">Dosen Pengajar</th>
+                                                <th style="text-align: center;">Kehadiran</th>
+                                                <th style="text-align: center;">Pindah Kelas</th>
+                                            </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <% if(typeof sabtu !== 'undefined') { %>
+
+                                        <tr>
+                                            <td data-label="No" scope="row"> 1 </td>
+                                            <td data-label="Jam"> <%- sabtu['jam_kuliah'] %> </td>
+                                            <td data-label="Kode MK"> <%- sabtu['kode_mk'] %> </td>
+                                            <td data-label="Mata Kuliah"style="text-align: left;"> <%- sabtu['nama_mk'] %> </td>
+                                            <td data-label="SKS"> <%- sabtu['sks_mk'] %> SKS </td>
+                                            <td data-label="Kelas"> <%- sabtu['kelas'] %> </td>
+                                            <td data-label="Ruangan"> <%- sabtu['ruangan'] %> </td>
+                                            <td data-label="Dosen Pengajar" style="text-align: left;"> <%- sabtu['nama_dosen'] %> </td>
+                                            <td data-label="Kehadiran" style="text-align: left;"> <%- sabtu['info_kehadiran'] %> </td>
+                                            <td data-label="Pindah Kelas" class="dropdown" style="text-align: center;">
+                                              <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #E64901;"><i class="fa fa-cog" aria-hidden="true"></i>Aksi</button>
+
+                                              <div class="dropdown-menu dropdown-menu-right b-none contact-menu">
+                                                  <a class="dropdown-item" href="editPengajuanSIMK.html"><i class="icofont icofont-ui-add"></i> Pengajuan</a>
+                                                  <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-clip-board"></i>Klaim</a>
+                                              </div>
+
+                                          </td>
+                                        </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>             
+                        </div>
+
+            </div>
+        </div>
+               
+</div>
+</div>
+</div>                                  
+    </div>
+</div>
+
+<!-- sabtu end -->
+
+<!-- end tab tabel jadwal perkuliahan -->
+
+
+    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page body end -->
+        </div>
+    </div>
+    <!-- Main-body end -->
+    </div>
+</div>

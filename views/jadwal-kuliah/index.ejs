@@ -1,0 +1,71 @@
+<div class="main-body">
+    <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+
+            
+        <!-- start form pilihan kalender akademik -->
+                            <div class="row">
+
+                                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                    <div class="card user-card b-l-warning header-card">
+                                        <h2 class="log-pengguna" style="color: white;">Jadwal Kuliah Mahasiswa</h2>
+                                    </div>
+                                <div class="card user-card b-l-warning">
+                                    <div class="card-block scroll">
+                                            
+                                               <div class="row align-items-center">
+                    
+                                                   <form action="/tampil-jadwal-kuliah" method="post">
+                                                 <div class="col">
+                                                                <div class="form-group row">
+                                                                     <label class="col-form-label tahun-akademik">Tahun Akademik</label>
+                                                                        <div class="col-xl-10 col-lg-12 col-sm-12 col-xs-12">
+                                                                            <select name="keyword" class="form-control">
+                                                                                <option value="">- Pilih Salah Satu -</option>
+                                                                                <% tahun.forEach((val) => { %>
+                                                                                <option value="<%- val['kode_tahun_semester'] %>"><%- val['kode_tahun_semester'] %></option>
+                                                                                <% }) %>
+                                                                            </select>
+                                                                            <button type="submit" class="btn btn-warning btn-tampilkan-tahun-akademik"><i class="fa fa-search"></i> Tampilkan</button> 
+                                                                        </div>
+                                                                    </div>
+                                                                
+                                                    
+                                                                    
+                                                         
+                                                                   
+
+                                                        </div>
+                                                    </form>
+                                                    </div>            
+                                </div>                                                                         
+                            </div>
+
+                            <div class="card user-card b-l-warning">
+                                    <div class="card-block scroll">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <div class="row align-items-center">
+                                                        <div class="col-auto">
+                                                             <img src="..\files\assets\images\Logo-unpas.png" class="img-fluid logo-unpas" alt="User-Profile-Image">
+                                                        </div>
+                                                            <div class="col">
+                                                            <h1 class="card-header-text header-pengumuman">
+                                                                Jadwal kuliah masih bisa berubah. Mohon selalu mengakses menu ini dalam 2 minggu pertama perkuliahan.
+                                                            </h1>
+                                                            </div>
+                                                    </div>
+                                                    </div>
+                                                           
+                                                </div>                                                                         
+                                                </div>
+                                    </div>
+
+   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page body end -->
+        </div>

@@ -1,0 +1,1068 @@
+<div class="main-body">
+                            <div class="page-wrapper">
+                                    <!-- Page body start -->
+                                    <div class="page-body">
+                                        <div class="card user-card header-card">
+                                                                <h2 class="log-pengguna" style="color: white;">Pengisian KRS</h2>
+                                                        </div>
+                                                        <div class="card user-card b-l-warning user-card-full">
+                                                            <div class="row m-l-0 m-r-0">
+                                                                <div class="col-sm-4 user-profile">
+                                                                    <div class="card-block text-center text-white">
+                                                                        <div class="m-b-25">
+                                                                            <img src="<%- dataClient.foto %>" class="img-radius" alt="User-Profile-Image" width="100px">
+                                                                        </div>
+                                                                        <h6 class="f-w-600" style="color: black;"><%- dataClient.nama %></h6>
+                                                                        <p style="color: black;">Universitas Pasundan Bandung</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                    <div class="card-block">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-6">
+                                                                                <p class="m-b-10 f-w-600">Nama</p>
+                                                                                <h6 class="text-muted f-w-400"><%- dataClient.nama %></h6>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <p class="m-b-10 f-w-600">Nrp</p>
+                                                                                <h6 class="text-muted f-w-400"><%- dataClient.kode %></h6>
+                                                                            </div>
+                                
+                                                                            <div class="col-sm-6">
+                                                                                <p class="m-b-10 f-w-600">Program</p>
+                                                                                <h6 class="text-muted f-w-400"><%- dataClient.nama_program %></h6>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <p class="m-b-10 f-w-600">Program Studi</p>
+                                                                                <h6 class="text-muted f-w-400"><%- dataClient.nama_prodi %></h6>
+                                                                            </div>
+                                
+                                                                            <div class="col-sm-6">
+                                                                                <p class="m-b-10 f-w-600">Dosen Wali</p>
+                                                                                <h6 class="text-muted f-w-400"><%- dataClient.dosen_wali %></h6>
+                                                                            </div>
+                                
+                                                                            <div class="col-sm-6">
+                                                                                <p class="m-b-10 f-w-600">Status</p>
+                                                                                <% if ( dataAkademik[0].id_status_mahasiswa == 'L'  ) { %>
+                                                                                <!-- <h6 class="f-w-400"><%- dataAkademik[0].status_mahasiswa %></h6> -->
+                                                                                <h6 class="f-w-400" style="color: blue;"><%- dataAkademik[0].status_mahasiswa %></h6>
+                                                                                <% } else if ( dataAkademik[0].id_status_mahasiswa == 'A'  ) { %>
+                                                                                <h6 class="f-w-400" style="color: green;"><%- dataAkademik[0].status_mahasiswa %></h6>
+                                                                                <% } else { %>
+                                                                                <h6 class="f-w-400" style="color: red;"><%- dataAkademik[0].status_mahasiswa %></h6>
+                                                                                <% } %>
+                                                                            </div>
+                                
+                                
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                    <!-- start Data Mahasiswa -->
+                                      
+
+                                <!-- end Data Mahasiswa  --> 
+
+                        <!-- start form pilihan tahun akademik -->
+                                                    <div class="row">
+
+                                                            <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                
+                                                        <div class="card user-card b-l-warning">
+                                                            <div class="card-block scroll">
+                                                                <div class="row align-items-center">
+                                                                    <form action="/tampil-pengisian-krs" method="post">
+                                                                         <div class="col">
+
+                                                                                        <div class="form-group row">
+                                                                                             <label class="col-form-label tahun-akademik">Tahun Akademik</label>
+                                                                                                <div class="col-xl-10 col-lg-12 col-sm-12 col-xs-12">
+                                                                                                    <select name="keyword" class="form-control">
+                                                                                                        <option value="">- Pilih Salah Satu -</option>
+                                                                                                        <% tahun.forEach((val) => { %>
+                                                                                                            <option value="<%- val['kode_tahun_semester'] %>"><%- val['kode_tahun_semester'] %></option>
+                                                                                                        <% }) %>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            
+                                                                                                <button type="submit" class="btn btn-warning btn-tampilkan-tahun-akademik"><i class="fa fa-search"></i> Tampilkan</button> 
+                                                                                 
+
+                                                                                </div>
+                                                                            </div>
+                                                                                   
+                                                                        </div>                                                                         
+                                                                        </div>
+                                                                    </form>
+                            <!-- end form pilihan tahun akademik -->
+
+                            <!-- pemberitahuan kesalahan start -->
+                                                    <div class="row">
+
+                                                            <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                
+                                                        <div class="card user-card b-l-warning">
+                                                            <div class="card-block scroll">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col">
+                                                                        <div class="row align-items-center">
+                                                                                <div class="col-auto">
+                                                                                     <img src="..\files\assets\images\Logo-unpas.png" class="img-fluid logo-unpas" alt="User-Profile-Image">
+                                                                                </div>
+                                                                                    <div class="col">
+                                                                                        <h1 class="card-header-text header-pengumuman">Mahasiswa Tidak Terdaftar</h1>
+                                                                                         <h3 class="m-b-0 sampurasun">
+                                                                                            <br>Ada Empat Kemungkinan Kesalahan : </br>
+                                                                                            <br>1. Fakultas/Prodi belum mengaktifkan tahun akademik: 20201.</br>
+                                                                                                2. Mahasiswa SYAHRUL ANDRI PERMANA (173040161) tidak terdaftar untuk sesi/semester 20201.</br>
+                                                                                                3. Status Mahasiswa SYAHRUL ANDRI PERMANA (173040161) untuk sesi/semester 20201 belum diaktifkan.</br>
+                                                                                                4. Mahasiswa SYAHRUL ANDRI PERMANA (173040161) dalam status 0 SKS untuk sesi/semester 20201.</br>
+                                                                                        </h3>
+                                                                                        <hr class="garis-sampurasun">
+                                                                                    </div>
+                                                                            </div>
+                                                                            </div>
+                                                                                   
+                                                                        </div>                                                                         
+                                                                        </div>
+                            <!-- end form pilihan tahun akademik -->
+
+            
+                            <!-- start hasil pencarian tahun akademik -->
+
+                                                           <!--  <div class="row">
+
+                                                                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                               
+                                                                        <div class="card social-card">
+                                                                            <div class="card-block scroll">
+                                                                                <div class="row align-items-center">
+                                                                                    
+                                                                                            <div class="table-responsive">
+                                                                                                <table class="table  invoice-detail-table">
+
+                                                                                                     <tr class="group" style="color: #404E67;">
+                                                                                                        <td colspan="4" style="text-align: center; background-color: #E75101; color: #FFFFFF;">
+                                                                                                                        <h4>Semester</h4>           
+                                                                                                            </td>
+                                                                                                    </tr>
+
+                                                                                                    <tbody class="tbody-kalender-akademik">
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Tahun Akademik</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>2019-2</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Semester</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>6</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Status</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>Aktif</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Total SKS</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>24 SKS</td>
+                                                                                                        </tr>
+
+                                                                                                         <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Maksimal SKS</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>20 SKS</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td colspan="4">
+                                                                                                                <br>
+                                                                                                                <h4 class="dpp" style="text-align: center;">IP 2018 - 2</h4>
+                                                                                                            </td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>IPS</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>2.26</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>IPK</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>2.86</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>SKS Kumulatif</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>94 SKS</td>
+                                                                                                        </tr>
+
+                                                                                                    </tbody>
+
+                                                                                                </table>
+                                                                                            </div>
+
+                                                                                                   
+                                                                                    </div>                                                                         
+                                                                            </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+
+                                                                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                               
+                                                                        <div class="card social-card">
+                                                                            <div class="card-block scroll">
+                                                                                <div class="row align-items-center">
+                                                                                    
+                                                                                            <div class="table-responsive">
+                                                                                                <table class="table  invoice-detail-table">
+
+                                                                                                    <tr class="group" style="color: #404E67;">
+                                                                                                        <td colspan="4" style="text-align: center; background-color: #E75101; color: #FFFFFF;">
+                                                                                                                        <h4>Batas</h4>           
+                                                                                                            </td>
+                                                                                                    </tr>
+
+                                                                                                    <tbody class="tbody-kalender-akademik">
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Pengisian KRS</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>02-01-2020 sd 18-01-2020</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Perubahan KRS (Add/Drop)</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>19-12-2020 sd 19-12-2020</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Pengajuan Cuti & Mundur Kuliah</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>19-12-2020 sd 19-12-2020</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Pembayaran</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>19-12-2020 sd 09-01-2020</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Masa Perkuliahan</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>27-01-2020 sd 16-05-2020</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Masa Studi</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>Genap 2023 sd 2024</td>
+                                                                                                        </tr>
+                                                                                                        
+                                                                                                    </tbody>
+
+                                                                                                </table>
+                                                                                            </div>
+                                   
+                                                                                    </div>                                                                         
+                                                                            </div>
+                                                                    </div> -->
+
+                                <!-- end hasil pencarian tahun akademik -->
+
+                                <!-- start tabel KRS mata kuliah -->
+
+                                                          <!--   <div class="row">
+
+                                                                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                               
+                                                                        <div class="card social-card">
+                                                                            <div class="card-block scroll">
+                                                                                <div class="row align-items-center">
+                                                                                    
+                                                                                            <div class="table-responsive">    
+                                                                                              <div class="card-block table-border-style">
+
+                                                                                                        <h3 class="dpp" style="text-align: center; color: #404E67;">
+                                                                                                            Daftar Mata Kuliah
+                                                                                                        </h3>
+
+                                                                                                    <div class="table-responsive">
+                                                                                                        <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+                                                                                                            <thead>
+
+                                                                                                                <tr class="head-tabel-krs">
+                                                                                                                    <th style="text-align: center;">No</th>
+                                                                                                                    <th style="text-align: center;"></th>
+                                                                                                                    <th style="text-align: center;">Kode MK</th>
+                                                                                                                    <th style="text-align: center;">Mata Kuliah</th>
+                                                                                                                    <th style="text-align: center;">Status</th>
+                                                                                                                    <th style="text-align: center;">Kelas</th>
+                                                                                                                    <th style="text-align: center;">Nilai</th>
+                                                                                                                    <th style="text-align: center;">SKS</th>
+                                                                                                                    <th style="text-align: center;">Mundur</th>
+                                                                                                                    <th style="text-align: center;">Waktu Input</th>
+                                                                                                                </tr>
+
+                                                                                                            </thead>
+                                                                                                            <tbody>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;"> 1 </th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF161802 </td>
+                                                                                                                    <td> INTELEJENSIA BUATAN </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 3 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-02-03 22:39:58 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">2</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF165803 </td>
+                                                                                                                    <td> ISLAM DASAR ILMU </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-02-03 22:39:59 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">3</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF165704 </td>
+                                                                                                                    <td> KERJA PRAKTEK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 15:24:00 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">4</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF164601 </td>
+                                                                                                                    <td> MANAJEMEN PROYEK PERANGKAT LUNAK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 3 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 15:23:56 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">5</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF165602 </td>
+                                                                                                                    <td> METODE PENELITIAN </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 15:23:58 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">6</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF165602 </td>
+                                                                                                                    <td> PEMROGRAMAN BERBASIS KOMPONEN </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 3 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 15:23:59 </td>
+                                                                                                                </tr>
+
+                                                                                                                 <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">7</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF163603 </td>
+                                                                                                                    <td> SISTEM ANTARMUKA PERANGKAT DIGITAL </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 3 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 11:52:03 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">8</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF164604 </td>
+                                                                                                                    <td> SISTEM APLIKASI BERGERAK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 3 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 15:23:57 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr class="group" style="color: #404E67;">
+                                                                                                                    <td colspan="4" style="text-align: center;">
+
+                                                                                                                        Total SKS : 
+
+                                                                                                                                <td colspan="6">
+                                                                                                                                    21 SKS
+                                                                                                                                </td>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                
+
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                                   
+                                                                                    </div>                                                                         
+                                                                            </div>
+                                                                    </div>
+ -->
+                                <!-- end tabel KRS mata kuliah -->
+
+                                <!-- start tabel KRS mata kuliah praktikum -->
+
+                                                           <!--  <div class="row">
+
+                                                                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                               
+                                                                        <div class="card social-card">
+                                                                            <div class="card-block scroll">
+                                                                                <div class="row align-items-center">
+                                                                                    
+                                                                                            <div class="table-responsive">    
+                                                                                              <div class="card-block table-border-style">
+
+                                                                                                    <h3 class="dpp" style="text-align: center; color: #404E67;">
+                                                                                                            Daftar Mata Kuliah Praktikum
+                                                                                                        </h3>
+
+                                                                                                    <div class="table-responsive">
+                                                                                                        <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+                                                                                                            <thead>
+
+                                                                                                                <tr class="head-tabel-krs">
+                                                                                                                    <th style="text-align: center;">No</th>
+                                                                                                                    <th style="text-align: center;"></th>
+                                                                                                                    <th style="text-align: center;">Kode MK</th>
+                                                                                                                    <th style="text-align: center;">Mata Kuliah</th>
+                                                                                                                    <th style="text-align: center;">Status</th>
+                                                                                                                    <th style="text-align: center;">Kelas</th>
+                                                                                                                    <th style="text-align: center;">SKS</th>
+                                                                                                                    <th style="text-align: center;">Harga</th>
+                                                                                                                    <th style="text-align: center;">Status Pembayaran</th>
+                                                                                                                </tr>
+
+                                                                                                            </thead>
+                                                                                                            <tbody>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;"> 1 </th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF164604 </td>
+                                                                                                                    <td> SISTEM APLIKASI BERGERAK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td> Rp325.000,00 </i></td>
+                                                                                                                    <td> LUNAS </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;"> 2 </th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF164604 </td>
+                                                                                                                    <td> SISTEM APLIKASI BERGERAK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td> Rp325.000,00 </i></td>
+                                                                                                                    <td> LUNAS </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                   <th scope="row" style="text-align: center;"> 3 </th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF164604 </td>
+                                                                                                                    <td> SISTEM APLIKASI BERGERAK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td> Rp325.000,00 </i></td>
+                                                                                                                    <td> LUNAS </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr class="group" style="color: #404E67;">
+                                                                                                                    <td colspan="4" style="text-align: center;">
+
+                                                                                                                        Total SKS : 
+
+                                                                                                                                <td colspan="6">
+                                                                                                                                    6 SKS
+                                                                                                                                </td>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                
+
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                                   
+                                                                                    </div>                                                                         
+                                                                            </div>
+                                                                    </div> -->
+
+                                <!-- end tabel KRS mata praktikum -->
+
+
+
+                                                </div>
+                                            </div>
+                            <!-- pemberitahuan kesalahan end -->
+
+            
+                            <!-- start hasil pencarian tahun akademik -->
+
+                                                           <!--  <div class="row">
+
+                                                                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                               
+                                                                        <div class="card social-card">
+                                                                            <div class="card-block scroll">
+                                                                                <div class="row align-items-center">
+                                                                                    
+                                                                                            <div class="table-responsive">
+                                                                                                <table class="table  invoice-detail-table">
+
+                                                                                                     <tr class="group" style="color: #404E67;">
+                                                                                                        <td colspan="4" style="text-align: center; background-color: #E75101; color: #FFFFFF;">
+                                                                                                                        <h4>Semester</h4>           
+                                                                                                            </td>
+                                                                                                    </tr>
+
+                                                                                                    <tbody class="tbody-kalender-akademik">
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Tahun Akademik</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>2019-2</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Semester</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>6</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Status</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>Aktif</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Total SKS</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>24 SKS</td>
+                                                                                                        </tr>
+
+                                                                                                         <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Maksimal SKS</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>20 SKS</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td colspan="4">
+                                                                                                                <br>
+                                                                                                                <h4 class="dpp" style="text-align: center;">IP 2018 - 2</h4>
+                                                                                                            </td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>IPS</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>2.26</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>IPK</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>2.86</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>SKS Kumulatif</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>94 SKS</td>
+                                                                                                        </tr>
+
+                                                                                                    </tbody>
+
+                                                                                                </table>
+                                                                                            </div>
+
+                                                                                                   
+                                                                                    </div>                                                                         
+                                                                            </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+
+                                                                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                               
+                                                                        <div class="card social-card">
+                                                                            <div class="card-block scroll">
+                                                                                <div class="row align-items-center">
+                                                                                    
+                                                                                            <div class="table-responsive">
+                                                                                                <table class="table  invoice-detail-table">
+
+                                                                                                    <tr class="group" style="color: #404E67;">
+                                                                                                        <td colspan="4" style="text-align: center; background-color: #E75101; color: #FFFFFF;">
+                                                                                                                        <h4>Batas</h4>           
+                                                                                                            </td>
+                                                                                                    </tr>
+
+                                                                                                    <tbody class="tbody-kalender-akademik">
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Pengisian KRS</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>02-01-2020 sd 18-01-2020</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Perubahan KRS (Add/Drop)</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>19-12-2020 sd 19-12-2020</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Pengajuan Cuti & Mundur Kuliah</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>19-12-2020 sd 19-12-2020</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Pembayaran</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>19-12-2020 sd 09-01-2020</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Masa Perkuliahan</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>27-01-2020 sd 16-05-2020</td>
+                                                                                                        </tr>
+
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                                <h6>Masa Studi</h6>
+                                                                                                            </td>
+                                                                                                            <td></td>
+                                                                                                            <td></td>
+                                                                                                            <td>Genap 2023 sd 2024</td>
+                                                                                                        </tr>
+                                                                                                        
+                                                                                                    </tbody>
+
+                                                                                                </table>
+                                                                                            </div>
+                                   
+                                                                                    </div>                                                                         
+                                                                            </div>
+                                                                    </div> -->
+
+                                <!-- end hasil pencarian tahun akademik -->
+
+                                <!-- start tabel KRS mata kuliah -->
+
+                                                          <!--   <div class="row">
+
+                                                                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                               
+                                                                        <div class="card social-card">
+                                                                            <div class="card-block scroll">
+                                                                                <div class="row align-items-center">
+                                                                                    
+                                                                                            <div class="table-responsive">    
+                                                                                              <div class="card-block table-border-style">
+
+                                                                                                        <h3 class="dpp" style="text-align: center; color: #404E67;">
+                                                                                                            Daftar Mata Kuliah
+                                                                                                        </h3>
+
+                                                                                                    <div class="table-responsive">
+                                                                                                        <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+                                                                                                            <thead>
+
+                                                                                                                <tr class="head-tabel-krs">
+                                                                                                                    <th style="text-align: center;">No</th>
+                                                                                                                    <th style="text-align: center;"></th>
+                                                                                                                    <th style="text-align: center;">Kode MK</th>
+                                                                                                                    <th style="text-align: center;">Mata Kuliah</th>
+                                                                                                                    <th style="text-align: center;">Status</th>
+                                                                                                                    <th style="text-align: center;">Kelas</th>
+                                                                                                                    <th style="text-align: center;">Nilai</th>
+                                                                                                                    <th style="text-align: center;">SKS</th>
+                                                                                                                    <th style="text-align: center;">Mundur</th>
+                                                                                                                    <th style="text-align: center;">Waktu Input</th>
+                                                                                                                </tr>
+
+                                                                                                            </thead>
+                                                                                                            <tbody>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;"> 1 </th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF161802 </td>
+                                                                                                                    <td> INTELEJENSIA BUATAN </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 3 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-02-03 22:39:58 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">2</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF165803 </td>
+                                                                                                                    <td> ISLAM DASAR ILMU </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-02-03 22:39:59 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">3</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF165704 </td>
+                                                                                                                    <td> KERJA PRAKTEK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 15:24:00 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">4</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF164601 </td>
+                                                                                                                    <td> MANAJEMEN PROYEK PERANGKAT LUNAK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 3 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 15:23:56 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">5</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF165602 </td>
+                                                                                                                    <td> METODE PENELITIAN </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 15:23:58 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">6</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF165602 </td>
+                                                                                                                    <td> PEMROGRAMAN BERBASIS KOMPONEN </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 3 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 15:23:59 </td>
+                                                                                                                </tr>
+
+                                                                                                                 <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">7</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF163603 </td>
+                                                                                                                    <td> SISTEM ANTARMUKA PERANGKAT DIGITAL </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 3 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 11:52:03 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;">8</th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF164604 </td>
+                                                                                                                    <td> SISTEM APLIKASI BERGERAK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 3 </td>
+                                                                                                                    <td><i class="fa fa-minus" style="color: #E40505;"></i></td>
+                                                                                                                    <td> 2020-01-17 15:23:57 </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr class="group" style="color: #404E67;">
+                                                                                                                    <td colspan="4" style="text-align: center;">
+
+                                                                                                                        Total SKS : 
+
+                                                                                                                                <td colspan="6">
+                                                                                                                                    21 SKS
+                                                                                                                                </td>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                
+
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                                   
+                                                                                    </div>                                                                         
+                                                                            </div>
+                                                                    </div>
+ -->
+                                <!-- end tabel KRS mata kuliah -->
+
+                                <!-- start tabel KRS mata kuliah praktikum -->
+
+                                                           <!--  <div class="row">
+
+                                                                <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                                               
+                                                                        <div class="card social-card">
+                                                                            <div class="card-block scroll">
+                                                                                <div class="row align-items-center">
+                                                                                    
+                                                                                            <div class="table-responsive">    
+                                                                                              <div class="card-block table-border-style">
+
+                                                                                                    <h3 class="dpp" style="text-align: center; color: #404E67;">
+                                                                                                            Daftar Mata Kuliah Praktikum
+                                                                                                        </h3>
+
+                                                                                                    <div class="table-responsive">
+                                                                                                        <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+                                                                                                            <thead>
+
+                                                                                                                <tr class="head-tabel-krs">
+                                                                                                                    <th style="text-align: center;">No</th>
+                                                                                                                    <th style="text-align: center;"></th>
+                                                                                                                    <th style="text-align: center;">Kode MK</th>
+                                                                                                                    <th style="text-align: center;">Mata Kuliah</th>
+                                                                                                                    <th style="text-align: center;">Status</th>
+                                                                                                                    <th style="text-align: center;">Kelas</th>
+                                                                                                                    <th style="text-align: center;">SKS</th>
+                                                                                                                    <th style="text-align: center;">Harga</th>
+                                                                                                                    <th style="text-align: center;">Status Pembayaran</th>
+                                                                                                                </tr>
+
+                                                                                                            </thead>
+                                                                                                            <tbody>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;"> 1 </th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF164604 </td>
+                                                                                                                    <td> SISTEM APLIKASI BERGERAK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td> Rp325.000,00 </i></td>
+                                                                                                                    <td> LUNAS </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                    <th scope="row" style="text-align: center;"> 2 </th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF164604 </td>
+                                                                                                                    <td> SISTEM APLIKASI BERGERAK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td> Rp325.000,00 </i></td>
+                                                                                                                    <td> LUNAS </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr>
+                                                                                                                   <th scope="row" style="text-align: center;"> 3 </th>
+                                                                                                                    <td><i class="fa fa-check" style="color: #2ECC71;"></i></td>
+                                                                                                                    <td> IF164604 </td>
+                                                                                                                    <td> SISTEM APLIKASI BERGERAK </td>
+                                                                                                                    <td> DITERIMA </td>
+                                                                                                                    <td> - </td>
+                                                                                                                    <td> 2 </td>
+                                                                                                                    <td> Rp325.000,00 </i></td>
+                                                                                                                    <td> LUNAS </td>
+                                                                                                                </tr>
+
+                                                                                                                <tr class="group" style="color: #404E67;">
+                                                                                                                    <td colspan="4" style="text-align: center;">
+
+                                                                                                                        Total SKS : 
+
+                                                                                                                                <td colspan="6">
+                                                                                                                                    6 SKS
+                                                                                                                                </td>
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                
+
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                                   
+                                                                                    </div>                                                                         
+                                                                            </div>
+                                                                    </div> -->
+
+                                <!-- end tabel KRS mata praktikum -->
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Page body end -->
+                                </div>
+                            </div>

@@ -1,0 +1,273 @@
+<div class="main-body">
+    <div class="page-wrapper">
+            <!-- Page body start -->
+            <div class="page-body">
+
+<!-- start Data Mahasiswa -->
+                <div class="card user-card header-card">
+                                        <h2 class="log-pengguna" style="color: white;">Status Akademik</h2>
+                                </div>
+                            <div class="card user-card b-l-warning user-card-full">
+                            <div class="row m-l-0 m-r-0">
+                                <div class="col-sm-4 user-profile">
+                                    <div class="card-block text-center text-white">
+                                        <div class="m-b-25">
+                                            <img src="<%- dataClient.foto %>" class="img-radius" alt="User-Profile-Image" width="100px">
+                                        </div>
+                                        <h6 class="f-w-600" style="color: black;"><%- dataClient.nama %></h6>
+                                        <p style="color: black;">Universitas Pasundan Bandung</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="card-block">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Nama</p>
+                                                <h6 class="text-muted f-w-400"><%- dataClient.nama %></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Nrp</p>
+                                                <h6 class="text-muted f-w-400"><%- dataClient.kode %></h6>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Program</p>
+                                                <h6 class="text-muted f-w-400"><%- dataClient.nama_program %></h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Program Studi</p>
+                                                <h6 class="text-muted f-w-400"><%- dataClient.nama_prodi %></h6>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Dosen Wali</p>
+                                                <h6 class="text-muted f-w-400"><%- dataClient.dosen_wali %></h6>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Status</p>
+                                                <% if ( dataAkademik[0].id_status_mahasiswa == 'L'  ) { %>
+                                                <!-- <h6 class="f-w-400"><%- dataAkademik[0].status_mahasiswa %></h6> -->
+                                                <h6 class="f-w-400" style="color: blue;"><%- dataAkademik[0].status_mahasiswa %></h6>
+                                                <% } else if ( dataAkademik[0].id_status_mahasiswa == 'A'  ) { %>
+                                                <h6 class="f-w-400" style="color: green;"><%- dataAkademik[0].status_mahasiswa %></h6>
+                                                <% } else { %>
+                                                <h6 class="f-w-400" style="color: red;"><%- dataAkademik[0].status_mahasiswa %></h6>
+                                                <% } %>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        <!-- end Data Mahasiswa  --> 
+
+        <!-- start tabel status akademik -->
+
+                                    <div class="row">
+
+                                        <div class="col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                                                       
+                                                <div class="card user-card b-l-warning">
+                                                    <div class="card-block scroll">
+                                                        <div class="row align-items-center">
+                                                            
+                                                                    <div class="table-responsive">    
+                                                                      <div class="card-block table-border-style">
+
+                                                                                <!-- <h3 class="dpp" style="text-align: center; color: #404E67;">
+                                                                                    Daftar Mata Kuliah
+                                                                                </h3> -->
+
+                                                                            <div class="table-responsive">
+                                                                                <table class="table table-striped table-bordered nowrap dataTable tabel-krs">
+
+                                                                                    <thead>
+
+                                                                                            <tr role="row" style="background-color: #FF9000; color: #FFFFFF;">
+
+                                                                                                <th rowspan="2" class="sorting_asc" tabindex="0" aria-controls="complex-header" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 50px; text-align: center;">
+
+                                                                                                    No
+
+                                                                                                 </th>
+
+                                                                                                 <th rowspan="2" class="sorting_asc" tabindex="0" aria-controls="complex-header" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 150px; text-align: center;">
+                                                                                                 
+                                                                                                    Semester
+
+                                                                                                 </th>
+
+                                                                                                  <th rowspan="2" class="sorting_asc" tabindex="0" aria-controls="complex-header" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100px; text-align: center;">
+                                                                                                  
+                                                                                                    Status
+
+                                                                                                  </th>
+
+                                                                                                   <th colspan="4" rowspan="1" style="text-align: center;">DPP</th>
+                                                                                                   <th colspan="4" rowspan="1" style="text-align: center;">SKS</th>
+                                                                                                   <th colspan="4" rowspan="1" style="text-align: center;">Indeks Prestasi</th>
+
+                                                                                                   
+
+                                                                                            </tr>
+
+                                                                                            <tr role="row" style="background-color: #FF9000; color: #FFFFFF;">
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 200px; text-align: center;">
+
+                                                                                                    Kewajiban Bayar
+
+                                                                                                </th>
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 234px; text-align: center;">
+
+
+                                                                                                     Sudah Bayar
+
+                                                                                                </th>
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 234px; text-align: center;">
+
+                                                                                                     Status
+
+                                                                                                </th>
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 234px; text-align: center;">
+
+                                                                                                    O SKS
+
+                                                                                                </th>
+
+                                                                                                
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 167px; text-align: center;">
+
+                                                                                                    Maksimal
+
+                                                                                                </th>
+
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 200px; text-align: center;">
+
+                                                                                                    Kontrak
+
+                                                                                                </th>
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 200px; text-align: center;">
+
+                                                                                                    Lulus
+
+                                                                                                </th>
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 200px; text-align: center;">
+
+                                                                                                    Kumulatif
+
+                                                                                                </th>
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 200px; text-align: center;">
+
+                                                                                                    IPT
+
+                                                                                                </th>
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 200px; text-align: center;">
+
+                                                                                                    IPA
+
+                                                                                                </th>
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 200px; text-align: center;">
+
+                                                                                                    IPS
+
+                                                                                                </th>
+
+                                                                                                <th class="sorting" tabindex="0" aria-controls="complex-header" rowspan="1" colspan="1" aria-label="" style="width: 200px; text-align: center;">
+
+                                                                                                    IPK
+
+                                                                                                </th>                                                                         
+
+                                                                                            </tr>
+
+                                                                                            
+
+                                                                                    </thead>
+
+                                                                                    <tbody>
+                                                                                        <% no = 1 %>
+                                                                                        <% dataAkademik.forEach((val) => { %>
+                                                                                        <tr>
+                                                                                            <td data-label="No" scope="row"> <%- no++ %> </td>
+                                                                                            <td data-label="Semester"> <%- val['kode_tahun_semester'] %> </i></td>
+                                                                                            <td data-label="Status" style="text-align: left;">
+                                                                                                <% if(val['id_status_mahasiswa'] == 'A') { %>
+                                                                                                <h6 class="f-w-400" style="color: green;">
+                                                                                                    Aktif
+                                                                                                </h6>
+                                                                                                <% } else if (val['id_status_mahasiswa'] == 'L') { %>
+                                                                                                    <h6 class="f-w-400" style="color: blue;">
+                                                                                                        Lulus
+                                                                                                    </h6>
+                                                                                                <% } else { %>
+                                                                                                    <h6 class="f-w-400" style="color: red;">
+                                                                                                        Non-Aktif
+                                                                                                    </h6>
+                                                                                                <% } %>
+                                                                                            </td>
+                                                                                            <td data-label="Kewajiban Bayar (DPP)">Rp. <%- dpp.tagihan %> </td>
+                                                                                            <td data-label="Sudah Bayar (DPP)" tyle="text-align: left;">Rp. <%- dpp.bayar %> </td>
+                                                                                            <td data-label="Status (DPP)" style="text-align: left;"> <%- dpp.persen %> % </td>
+                                                                                            <td data-label="0 SKS (DPP)"> <%- val['id_jenis_0_sks'] %> SKS  </td>
+                                                                                            <td data-label="SKS Maksimal"> <%- val['sks_maksimal'] %> SKS </td>
+                                                                                            <td data-label="SKS Kontrak"> <%- val['sks_kontrak'] %> SKS</td>
+                                                                                            <td data-label="SKS Lulus"><%- val['sks_lulus'] %> SKS </td>
+                                                                                            <td data-label="SKS Kumulatif" style="text-align: left;"> <%- val['sks_kumulatif'] %> SKS </td>
+                                                                                            <td data-label="IPT"> <%- val['ipt'] %> </td>
+                                                                                            <td data-label="IPA"> <%- val['ipa'] %> </td>
+                                                                                            <td data-label="IPS"> <%- val['ips'] %> </td>
+                                                                                            <td data-label="IPK"> <%- val['ipk'] %> </td>
+                                                                                            <!-- <td data-label="Aksi" class="dropdown">
+                                                                                              <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #E64901;"><i class="fa fa-cog" aria-hidden="true"></i>Aksi</button>
+
+                                                                                              <div class="dropdown-menu dropdown-menu-right b-none contact-menu">
+                                                                                                <a class="dropdown-item" href="editPengajuanSIMK.html">
+                                                                                                    <i class="fa fa-history"></i> Proses DPP
+                                                                                                </a>
+                                                                                                <a class="dropdown-item" href="#!">
+                                                                                                    <i class="fa fa-calculator"></i> Hitung IPK
+                                                                                                </a>
+                                                                                              </div>
+                                                                                           </td> -->
+                                                                                           <!-- <td data-label="Status"> 
+                                                                                                <i class="fa fa-check" style="color: green;"></i>
+                                                                                                <i class="fa fa-minus" style="color: red; display: none;"></i> 
+                                                                                            </td> -->
+                                                                                        </tr>
+                                                                                        <% }) %>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                           
+                                                            </div>                                                                         
+                                                    </div>
+                                            </div>
+
+        <!-- end tabel status akademik -->               
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- Page body end -->
+    </div>
+</div   

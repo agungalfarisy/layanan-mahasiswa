@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= title %></title>
+
+	   <link rel="stylesheet" href="files/assets/css/app.css">
+    <!-- Favicon icon -->
+	  <link rel="icon" href="files/assets/images/Logo-unpas.png" type="image/x-icon">
+	  <!-- Google font-->
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- owl carousel css -->
+    <link rel="stylesheet" type="text/css" href="files/bower_components/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="files/bower_components/owl.carousel/css/owl.theme.default.css">
+	  <!-- Required Fremwork -->
+	  <link rel="stylesheet" type="text/css" href="files/bower_components/bootstrap/css/bootstrap.min.css">
+	  <!-- themify-icons line icon -->
+	  <link rel="stylesheet" type="text/css" href="files/assets/icon/themify-icons/themify-icons.css">
+	  <!-- ico font -->
+	  <link rel="stylesheet" type="text/css" href="files/assets/icon/icofont/css/icofont.css">
+	  <!-- feather Awesome -->
+	  <link rel="stylesheet" type="text/css" href="files/assets/icon/feather/css/feather.css">
+   <!-- jpro forms css -->
+   <link rel="stylesheet" type="text/css" href="files/assets/pages/j-pro/css/demo.css">
+   <link rel="stylesheet" type="text/css" href="files/assets/pages/j-pro/css/font-awesome.min.css">
+   <link rel="stylesheet" type="text/css" href="files/assets/pages/j-pro/css/j-pro-modern.css">
+   <!-- Syntax highlighter Prism css -->
+   <link rel="stylesheet" type="text/css" href="files/assets/pages/prism/prism.css">
+   <!-- Style.css -->
+   <link rel="stylesheet" type="text/css" href="files/assets/css/home.css">
+   <link rel="stylesheet" type="text/css" href="files/assets/css/style3.css">
+   <link rel="stylesheet" type="text/css" href="files/assets/css/jquery.mCustomScrollbar.css">
+   <link rel="stylesheet" type="text/css" href="files/assets/css/pcoded-horizontal.min.css">
+
+</head>
+<body>
+	
+	
+<!-- Pre-loader start -->
+<div class="theme-loader">
+    <div class="ball-scale">
+        <div class='contain'>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+            <div class="ring">
+                <div class="frame"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Pre-loader end -->
+
+	
+
+<div id="pcoded" class="pcoded">
+
+    <div class="pcoded-container">
+        <!-- Menu header start -->
+        <nav class="navbar header-navbar pcoded-header">
+            <div class="navbar-wrapper">
+
+                <div class="navbar-logo auto-center">
+                    <div class="div">&nbsp;
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <i class="feather icon-menu"></i>
+                        </a>
+                    </div>
+
+                    <div class="div lite-hide">
+                        <a href="index-1.htm" class="auto-center">
+                            <img src="files/assets/img/logo-small.png" alt="">
+                            <h5 class="center">SELAMAT DATANG DI UNIVERSITAS PASUNDAN</h5>
+                        </a>
+                    </div>
+                    
+                    <div class="div">
+                        <a href="#!" onclick="javascript:toggleFullScreen()">
+                            <i class="feather icon-maximize full-screen"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <nav class="pcoded-navbar container nav-menu">
+                    <div class="pcoded-inner-navbar">
+                        <ul class="pcoded-item pcoded-left-item">
+                            <li class="pcoded-hasmenu">
+                                <a href="">
+                                    <span class="pcoded-mtext">Beranda FT Unpas</span>
+                                </a>    
+                            </li>
+                            <li class="pcoded-hasmenu">
+                                <a href="">
+                                    <span class="pcoded-mtext">Menu Utama</span>
+                                </a>    
+                            </li>
+                            <li class="pcoded-hasmenu">
+                                <a href="">
+                                    <span class="pcoded-mtext">PMB</span>
+                                </a>    
+                            </li>
+                            <li class="pcoded-hasmenu">
+                                <a href="">
+                                    <span class="pcoded-mtext">Wisuda</span>
+                                </a>    
+                            </li>
+                            <li class="pcoded-hasmenu">
+                                <a href="">
+                                    <span class="pcoded-mtext">Passmail</span>
+                                </a>    
+                            </li>
+                        </ul>
+                            
+                                <form action="/login" method="post" class="j-pro form-login" id="j-pro" novalidate="">
+
+                                <ul class="pcoded-item pcoded-right-item">
+                                    <li class="pcoded-hasmenu j-input">
+                                        <div class="login-wrapper">
+                                        <label class="j-icon-left" for="first_name">
+                                            <i class="icofont icofont-ui-user"></i>
+                                        </label>
+                                        <input type="text" id="first_name" name="username" placeholder="Username"></div>
+                                    </li>
+
+                                    <li class="pcoded-hasmenu j-input login-wrapper">
+                                        <div class="login-wrapper">
+                                            <label class="j-icon-left" for="last_name">
+                                                <i class="icofont icofont-ui-lock"></i>
+                                            </label>
+                                            <input type="password" id="kataSandi" name="password" placeholder="Password">
+                                            <i id="show" class="fa fa-eye" style="margin-left: 10px;" onclick="myFunctionLogin()"></i>
+                                            <i id="hide" class="fa fa-eye-slash" style="margin-left: 8px; display: none;" onclick="myFunctionLogin()"></i>
+                                        </div>
+                                    </li>
+
+                                    <li class="pcoded-hasmenu j-input ">
+                                        <div class="login-wrapper btn-wrapper">
+                                            <button type="submit" class="btn">Login</button>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                </form>
+
+                    </div>
+                </nav>
+                
+
+            </div>
+        </nav>
+        <div class="pcoded-main-container">
+            <div class="pcoded-wrapper">
+                <div class="pcoded-content">
+                    <div class="pcoded-inner-content">
+
+                        <!-- Main-body start -->
+                        <div class="main-body">
+                            <div class="page-wrapper">
+                                    <div class="page-body  m-t-40" id="home">
+                                            <div class="row">
+                                                        
+                                                <div class="col-xl-9">
+                                                    <div class="row">
+
+                                                        <div class="col-xl-12">
+                                                            <div class="card">
+                                                                <div class="card-block p-b-0">
+                                                                    <div class="owl-carousel carousel-dot owl-theme">
+                                                                        <div>
+                                                                            <img class="d-block img-fluid" src="files/assets/images/slider/slider50.jpg" alt="Third slide">
+                                                                        </div>
+                                                                        <div>
+                                                                            <img class="d-block img-fluid" src="files/assets/images/slider/slider60.jpg" alt="Third slide">
+                                                                        </div>
+                                                                        <div>
+                                                                            <img class="d-block img-fluid" src="files/assets/images/slider/slider70.jpg" alt="Third slide">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-xl-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5 class="card-header-text">PENGUMUMAN</h5>
+                                                                </div>
+                                                                <div class="card-block accordion-block">
+                                                                    <div id="accordion" role="tablist" aria-multiselectable="true">
+                                                                        <div class="accordion-panel">
+                                                                            <div class="accordion-heading" role="tab" id="headingOne">
+                                                                                <h3 class="card-title accordion-title">
+                                                                                <a class="accordion-msg collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                                    <i class="fa fa-exclamation-circle" style="color: #E64901; margin-right: 5px;"></i>
+                                                                                    PANDUAN PENGGUNA APLIKASI SISTER
+                                                                                </a>
+                                                                            </h3>
+                                                                            </div>
+                                                                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                                                <div class="accordion-content accordion-desc">
+                                                                                    <p>
+                                                                                       Dalam rangka pengintegrasian layanan karir dan kompetensi dosen, 
+                                                                                       Kementrian Riset Teknologi dan Perguruan Tinggi telah merilis Sistem Informasi Sumber Daya Terintegrasi (SISTER) yang 
+                                                                                       di kelola oleh masing- masing Perguruan Tinggi. Khusus Universitas Pasundan, 
+                                                                                       SISTER telah dapat di akses dan digunakan melalui laman <a href="" class="small-btn">http://sister.unpas.ac.id</a>.
+                                                                                        Petunjuk Pengguna SISTER untuk Dosen dapat di akses <a href="" class="small-btn">DISINI</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="accordion-panel">
+                                                                            <div class="accordion-heading" role="tab" id="headingTwo">
+                                                                                <h3 class="card-title accordion-title">
+                                                                                <a class="accordion-msg collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                                    <i class="fa fa-exclamation-circle" style="color: #E64901; margin-right: 5px;"></i>
+                                                                                    AKSES INFRORMASI MELALUI WHATSAPP
+                                                                                </a>
+                                                                            </h3>
+                                                                            </div>
+                                                                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                                                <div class="accordion-content accordion-desc">
+                                                                                    <p>
+                                                                                        Silahkan manfaatkan fasilitas untuk mendapatkan informasi melalui aplikasi <b>SisWA</b>. Caranya klik <a href="" class="small-btn">DISINI</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="accordion-panel">
+                                                                            <div class=" accordion-heading" role="tab" id="headingThree">
+                                                                                <h3 class="card-title accordion-title">
+                                                                                <a class="accordion-msg collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                                    <i class="fa fa-exclamation-circle" style="color: #E64901; margin-right: 5px;"></i>
+                                                                                    CARA MENGHITUNG IP DAN MEMPROSES STATUS DPP
+                                                                                </a>
+                                                                            </h3>
+                                                                            </div>
+                                                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                                                <div class="accordion-content accordion-desc">
+                                                                                    <p>
+                                                                                        Jika raihan SKS, Indeks Presentasi (IP) atau Pembayaran DPP anda belum sesuai, silahkan perbaharui sendiri data- data tersebut.<br> Klik <a href="" class="small-btn">DISINI</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="accordion-panel">
+                                                                            <div class=" accordion-heading" role="tab" id="headingFour">
+                                                                                <h3 class="card-title accordion-title">
+                                                                                <a class="accordion-msg collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                                                    <i class="fa fa-exclamation-circle" style="color: #E64901; margin-right: 5px;"></i>
+                                                                                    CARA MENGUNDUH FOTO PROSESI WISUDA
+                                                                                </a>
+                                                                            </h3>
+                                                                            </div>
+                                                                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                                                                <div class="accordion-content accordion-desc">
+                                                                                    <p>
+                                                                                        Untuk mengetahui cara mendownload foto Prosesi Wisuda secara Oniline klik <a href="" class="small-btn">DISINI</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xl-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>INDEKS NILAI UJIAN TERTINGGI</h5>
+                                                                </div>
+                                                                <div class="card-block">
+                                                                    &nbsp;
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>   
+                                                </div>
+                                
+                                                <div class="col-xl-3">
+                                                    <div class="row">
+                                                        
+                                                        <div class="col-xl-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>INFORMASI AKADEMIK</h5>
+                                                                </div>
+
+                                                                <div class="card-block">
+
+                                                                    <div class="col-xl-12">
+                                                                        <div class="head">
+                                                                            <i class="fas fa fa-graduation-cap mx-1 fa-2x"></i> 
+                                                                            <h6 class="">PERKULIAHAN</h6>
+                                                                        </div>
+                                                                        <div class="list">
+                                                                            <ul class="list-wrapper">
+                                                                                <a href=""><li class="list-link">Kehadiran Tendik</li></a>
+                                                                                <a href=""><li class="list-link">Kehadiran Dosen</li></a>
+                                                                                <a href=""><li class="list-link">Jadwal Semester Berjalan</li></a>
+                                                                                <a href=""><li class="list-link">Jadwal Hari Ini</li></a>
+                                                                                <a href=""><li class="list-link">Jadwal Saat Ini</li></a>
+                                                                                <a href=""><li class="list-link">Jadwal Ujian</li></a>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-xl-12">
+                                                                        <div class="head">
+                                                                            <i class="fas fa fa-bar-chart mx-1 fa-2x"></i> 
+                                                                            <h6 class="">NILAI</h6>
+                                                                        </div>
+                                                                        <div class="list">
+                                                                            <ul class="list-wrapper">
+                                                                                <a href=""><li class="list-link">Nilai Belum Setor</li></a>
+                                                                                <a href=""><li class="list-link">Nilai Belum Entri</li></a>
+                                                                                <a href=""><li class="list-link">Nilai Sudah Entry</li></a>
+                                                                                <a href=""><li class="list-link">Distribusi Nilai</li></a>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-xl-12">
+                                                                        <div class="head">
+                                                                            <i class="fas fa fa-pencil-square-o mx-1 fa-2x"></i> 
+                                                                            <h6 class="">HASIL KUISIONER</h6>
+                                                                        </div>
+                                                                        <div class="list">
+                                                                            <ul class="list-wrapper">
+                                                                                <a href=""><li class="list-link">Layanan Administrasi</li></a>
+                                                                                <a href=""><li class="list-link">Layanan Kemahasiswaan</li></a>
+                                                                                <a href=""><li class="list-link">Layanan Labolatorium</li></a>
+                                                                                <a href=""><li class="list-link">Layanan PMB</li></a>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-12">
+                                                                        <div class="head">
+                                                                            <i class="fas fa fa-search mx-1 fa-2x"></i> 
+                                                                            <h6 class="">PENELITIAN</h6>
+                                                                        </div>
+                                                                        <div class="list">
+                                                                            <ul class="list-wrapper">
+                                                                                <a href=""><li class="list-link">Artikel Jurnal</li></a>
+                                                                                <a href=""><li class="list-link">Skripsi Mahasiswa</li></a>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xl-12">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>LOG PENGGUNA</h5>
+                                                                </div>
+                                                                <div class="card-block">
+                                                                    <div class="boxs list">
+                                                                        <ul class="log list-wrapper no-m">
+                                                                            <li>173040138</li>
+                                                                            <li>173040138</li>
+                                                                            <li>173040138</li>
+                                                                            <li>173040138</li>
+                                                                            <li>173040138</li>
+                                                                            <li>173040138</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>   
+                                                </div>
+                                                      
+                                            </div> 
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+	<footer>
+	
+</footer>
+
+    <!-- feather Awesome -->
+    <script src="https://kit.fontawesome.com/fa0fd4e644.js" crossorigin="anonymous"></script>
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="files/bower_components/jquery/js/jquery.min.js"></script>
+    <script type="text/javascript" src="files/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="files/bower_components/popper.js/js/popper.min.js"></script>
+    <script type="text/javascript" src="files/bower_components/bootstrap/js/bootstrap.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="files/bower_components/modernizr/js/modernizr.js"></script>
+    <script type="text/javascript" src="files/bower_components/modernizr/js/css-scrollbars.js"></script>
+    <!-- j-pro js -->
+    <script type="text/javascript" src="files/assets/pages/j-pro/js/jquery.ui.min.js"></script>
+    <script type="text/javascript" src="files/assets/pages/j-pro/js/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="files/assets/pages/j-pro/js/jquery.j-pro.js"></script>
+    <!-- Syntax highlighter prism js -->
+    <script type="text/javascript" src="files/assets/pages/prism/custom-prism.js"></script>
+    <!-- owl carousel 2 js -->
+    <script type="text/javascript" src="files/bower_components/owl.carousel/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="files/assets/js/owl-custom.js"></script>
+    <!-- i18next.min.js -->
+    <script type="text/javascript" src="files/bower_components/i18next/js/i18next.min.js"></script>
+    <script type="text/javascript" src="files/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
+    <script type="text/javascript" src="files/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
+    <script type="text/javascript" src="files/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
+    <!-- Custom js -->
+    <script src="files/assets/js/pcoded.min.js"></script>
+    <script src="files/assets/js/menu/menu-hori-fixed.js"></script>
+    <script src="files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="files/assets/js/script.js"></script>
+    <script type="text/javascript" src="files/assets/js/showHidden.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+</body>
+</html>
